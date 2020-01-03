@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>Iniciar Sesion</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"/>
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"/>
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css"/>
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
+</head>
+<body >
+<div background="login.jpg" style="background-repeat: no-repeat; background-position: center center;">
+  <div class="login-logo" style="background-color: #A9D0F5 ;color:#fff" role="navigation">
+    <a href="index2.html"><b>My</b> Health  </a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="card">
+    <div class="card-body login-card-body">
+      <p class="login-box-msg">Iniciar Sesion</p>
+
+      <h:form>
+        <div class="input-group mb-3">
+          <h:inputText value="#{gestionLoginBean.email}" pt:placeholder="Email" pt:type="email" class="form-control"/>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+        <h:inputText value="#{gestionLoginBean.contrasena}" pt:placeholder="Contraseña" pt:type="password" class="form-control"/>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+        	<h:commandButton action="#{gestionLoginBean.iniciarSesion()}" value="Iniciar Sesion" class="btn btn-primary btn-block" ></h:commandButton>
+          <!-- /.col -->
+        </div>
+      </h:form>
+
+
+      <p class="mb-1">
+        <a href="olvidePassword.xhtml">Olvide mi contraseña</a>
+      </p>
+      <p class="mb-0">
+        <a href="register.xhtml" class="text-center">Registrar un nuevo paciente</a>
+      </p>
+    </div>
+    <!-- /.login-card-body -->
+  </div>
+</div>
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="../../plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="../../dist/js/adminlte.min.js"></script>
+
+</body>
+</html>
