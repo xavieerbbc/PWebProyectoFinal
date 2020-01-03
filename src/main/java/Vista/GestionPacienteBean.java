@@ -30,7 +30,7 @@ public class GestionPacienteBean {
 	private String clave;
 	private Date fechaNac;
 	private String sexo;
-	//private String preguntaSecreta;
+	private String preguntaSecreta;
 	private String validar;
 	private String validar2;
 	
@@ -98,13 +98,13 @@ public class GestionPacienteBean {
 	}
 	
 	
-	/*public String getPreguntaSecreta() {
+	public String getPreguntaSecreta() {
 		return preguntaSecreta;
 	}
 
 	public void setPreguntaSecreta(String preguntaSecreta) {
 		this.preguntaSecreta = preguntaSecreta;
-	}*/
+	}
 
 	public List<Paciente> getPacientes() {
 		return pacientes;
@@ -146,7 +146,7 @@ public class GestionPacienteBean {
 		this.setClave(aux.getClave());
 		this.setFechaNac(aux.getFechaNac());
 		this.setSexo(aux.getSexo());
-		//this.setPreguntaSecreta(preguntaSecreta);
+		this.setPreguntaSecreta(preguntaSecreta);
 	}
 	
 	public String editarPaciente() {
@@ -159,7 +159,7 @@ public class GestionPacienteBean {
 		pacienteActualizado.setClave(this.getClave());
 		pacienteActualizado.setFechaNac(this.getFechaNac());
 		pacienteActualizado.setSexo(this.getSexo());
-		//pacienteActualizado.setPreguntaSecreta(this.getPreguntaSecreta());
+		pacienteActualizado.setPreguntaSecreta(this.getPreguntaSecreta());
 		this.gpl.actualizar(pacienteActualizado);
 		return "crearMedico?faces-redirect=true";
 	}
@@ -189,7 +189,7 @@ public class GestionPacienteBean {
 		paciente.setFechaNac(this.getFechaNac());
 		paciente.setSexo(this.getSexo());
 		paciente.setRol(this.gpl.obtenerRol(3));
-		//paciente.setPreguntaSecreta(this.getPreguntaSecreta());
+		paciente.setPreguntaSecreta(this.getPreguntaSecreta());
 		if(paciente.validarCedula()==true){
 			this.validar="";
 			if(paciente.validarNombre()==true) {

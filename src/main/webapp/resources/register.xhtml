@@ -131,7 +131,18 @@
 
 
 
-			
+			<div class="input-group mb-3">
+						<h:outputLabel
+							value="Ingrese correo de recuperacion" />
+						<h:inputText value="#{gestionPacienteBean.preguntaSecreta}"
+							pt:type="text" class="form-control"
+							pt:placeholder="example@gmail.com" />
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-user-secret"></span>
+							</div>
+						</div>
+					</div>
 
 					<h:commandButton value="Registrar"
 						action="#{gestionPacienteBean.guardarPaciente()}"
