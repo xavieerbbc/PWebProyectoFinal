@@ -34,13 +34,14 @@ public class GestionIndexPacienteBean {
 	private Medico medico;
 	private Date fecha;
 	private String hora;
-	private String estado;
 	
 	private List<Medico> medicos;
+	private List<Cita> citas;
 	
 	@PostConstruct
 	public void init() {
 		this.listarMedico();
+		this.citas= new ArrayList<Cita>();
 	}
 	
 	public List<Medico> getMedicos() {
@@ -73,15 +74,17 @@ public class GestionIndexPacienteBean {
 	public void setHora(String hora) {
 		this.hora = hora;
 	}
-	public String getEstado() {
-		return estado;
+	
+	
+	
+	public List<Cita> getCitas() {
+		return citas;
 	}
-	public void setEstado(String estado) {
-		this.estado = estado;
+
+	public void setCitas(List<Cita> citas) {
+		this.citas = citas;
 	}
-	
-	
-	
+
 	public GestionMedicoLocal getGml() {
 		return gml;
 	}
@@ -103,7 +106,7 @@ public class GestionIndexPacienteBean {
 	}
 	
 	
-	public void guardarCita(String user) {
+	public String guardarCita(String user) {
 		System.out.println(user);
 		Cita cita = new Cita();
 		cita.setCodigo(this.gcl.getCitas().size()+1);
@@ -111,10 +114,11 @@ public class GestionIndexPacienteBean {
 		cita.setMedico(this.getMedico());
 		cita.setFecha(this.getFecha());
 		cita.setHora(this.getHora());
-		cita.setEstado(this.getEstado());
+		cita.setEstado("Pendiente");
 		System.out.println(this.medico.toString());
 		System.out.println(cita.toString());
 		this.gcl.insertar(cita);
+		return "index2?faces-redirect=true";
 	}
 	
 	public Paciente buscarPacientexEmail(String user) {
@@ -127,6 +131,30 @@ public class GestionIndexPacienteBean {
 		}
 		return null;
 	}
-	
+	public String eliminar(int codigo) {
+
+		try {
+			this.gcl.borrar(codigo);
+			System.out.println("CITA ELIMINADA");
+			return "index2?faces-redirect=true";
+		} catch (Exception e) {
+			
+			System.out.println("ERROR");
+			e.printStackTrace();			
+		}		
+		return null;
+	}
+
+	public List<Cita> obtenerCitas(String email){
+		System.out.println(email);
+		List<Cita> aux= new ArrayList<Cita>();
+		this.citas=this.gcl.getCitas();
+		for(Cita ci: citas) {
+			if(ci.getPaciente().getEmail().equals(email)) {
+				aux.add(ci);
+			}
+		}
+		return aux;
+	}
 
 }
