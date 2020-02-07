@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html 
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Digital Medical | Página de Registro</title>
+<title>My Health | Página de Registro</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -29,7 +29,7 @@
 <body class="hold-transition register-page">
 	<div class="register-box">
 		<div class="register-logo">
-			<a href="index2.html"><b>Digital</b>Medical</a>
+			<a href="index2.html"><b>My</b>Heath</a>
 		</div>
 
 		<div class="card">
@@ -134,10 +134,10 @@
 
 					<div class="input-group mb-3">
 						<h:outputLabel
-							value="Pregunta Secreta: ¿Cual es el nombre de tu abuela?" />
+							value="Correo de Recuperacion!" />
 						<h:inputText value="#{gestionPacienteBean.preguntaSecreta}"
 							pt:type="text" class="form-control"
-							pt:placeholder="Pregunta Secreta" />
+							pt:placeholder="Correo de Recuperacion" />
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-user-secret"></span>
@@ -152,7 +152,7 @@
 
 				</h:form>
 
-				<a href="login.xhtml" class="text-center">Ya tengo una cuenta</a>
+				<a href="login.xhtml" class="text-center">Iniciar Sesion</a>
 			</div>
 			<!-- /.form-box -->
 		</div>
