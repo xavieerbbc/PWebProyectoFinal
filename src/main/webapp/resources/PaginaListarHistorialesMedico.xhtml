@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+		template="listarHistorialesMedico.xhtml">
+	
+		<ui:define name="nombreMedico">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+		
+		<ui:define name="listarHistoriales">
+		
+			<h:form id="formListaHistorial">
+				<div class="row">
+					<div class="col-12 table-responsive">
+						<h:dataTable id="historiales" var="_historiales" value="#{gestionHistorialBean.obtenerHistorialesMedico(gestionLoginBean.medico)}"
+						styleClass="table table-striped">
+						<h:column>
+							<f:facet name="header">Codigo</f:facet>
+							#{_historiales.codigo}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Paciente</f:facet>
+							#{_historiales.paciente.nombre}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Fecha de emision</f:facet>
+							#{_historiales.fecha}
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Acciones</f:facet>
+							<div class="btn-group btn-group-sm">
+								<h:commandButton action="#{gestionHistorialBean.editar(_historiales)}" styleClass="btn btn-info" value="Editar" />
+								<h:commandButton action="#{gestionHistorialBean.eliminar(_historiales.codigo)}" styleClass="btn btn-danger" value="Eliminar" />
+							</div>
+							
+						</h:column>
+					</h:dataTable>
+					</div>
+				</div>
+			</h:form>
+		
+		</ui:define>
+		
+
+		
+</ui:composition>

@@ -1,0 +1,107 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+		template="crearHistorialesMedico.xhtml">
+	
+		<ui:define name="nombreMedico">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+		
+		<ui:define name="crearHistoriales">
+		
+			<h:form>
+        		
+        		<h:outputLabel value="Paciente:" />
+        		<div class="form-group">
+              		<h:outputText value="Paciente:" />
+                	<h:selectOneMenu class="form-control select2" style="width: 100%;" value="#{gestionHistorialBean.historial.paciente}" converter="pacienteConverter2">
+      					<f:selectItems value="#{gestionHistorialBean.pacientes}" var="p"
+      						itemLabel="#{p.nombre}" itemValue="#{p}"/>
+      				</h:selectOneMenu>
+              	</div> 
+        		
+        		<h:outputLabel value="Motivo de consulta:" />
+        		<div class="input-group mb-3">
+          			<h:inputText  value="#{gestionHistorialBean.historial.motivoConsulta}" class="form-control"></h:inputText>
+          			<div class="input-group-append">
+            			<div class="input-group-text">
+              				<span class="fas fa-calendar"></span>
+            			</div>
+          			</div>
+        		</div>
+        		
+        		<h:outputLabel value="Diagnostico:" />
+        		<div class="input-group mb-3">
+          			<h:inputText  value="#{gestionHistorialBean.historial.diagnostico}" class="form-control"></h:inputText>
+          			<div class="input-group-append">
+            			<div class="input-group-text">
+              				<span class="fas fa-calendar"></span>
+            			</div>
+          			</div>
+        		</div>
+        		
+        		<h:outputLabel value="Tratamiento:" />
+        		<div class="input-group mb-3">
+          			<h:inputText  value="#{gestionHistorialBean.historial.tratamiento}" class="form-control"></h:inputText>
+          			<div class="input-group-append">
+            			<div class="input-group-text">
+              				<span class="fas fa-calendar"></span>
+            			</div>
+          			</div>
+        		</div>
+        		
+        		<h3>Antecedentes Clinicos</h3>
+        		
+        		<h:outputLabel value="Enfermedades:" />
+        		<div class="input-group mb-3">
+          			<h:inputText  value="#{gestionHistorialBean.historial.enfermedades}" class="form-control"></h:inputText>
+          			<div class="input-group-append">
+            			<div class="input-group-text">
+              				<span class="fas fa-calendar"></span>
+            			</div>
+          			</div>
+        		</div>
+        		
+        		<h:outputLabel value="Medicamentos que toma actualmente:" />
+        		<div class="input-group mb-3">
+          			<h:inputText  value="#{gestionHistorialBean.historial.medicamentosActuales}" class="form-control"></h:inputText>
+          			<div class="input-group-append">
+            			<div class="input-group-text">
+              				<span class="fas fa-calendar"></span>
+            			</div>
+          			</div>
+        		</div>
+        		
+        		<h:outputLabel value="Antecedentes enfermedades cronicas:" />
+        		<div class="input-group mb-3">
+          			<h:inputText  value="#{gestionHistorialBean.historial.antecedentesEnfermedades}" class="form-control"></h:inputText>
+          			<div class="input-group-append">
+            			<div class="input-group-text">
+              				<span class="fas fa-calendar"></span>
+            			</div>
+          			</div>
+        		</div>
+        		
+        		
+        		<h:outputLabel value="Alergias:" />
+        		<div class="input-group mb-3">
+          			<h:inputText  value="#{gestionHistorialBean.historial.alergias}" class="form-control"></h:inputText>
+          			<div class="input-group-append">
+            			<div class="input-group-text">
+              				<span class="fas fa-calendar"></span>
+            			</div>
+          			</div>
+        		</div>
+        		  
+              	
+              	<h:commandButton class="btn btn-info" action="#{gestionHistorialBean.guardar(gestionLoginBean.email)}" value="Guardar" />
+        	
+        	</h:form>
+				
+		</ui:define>
+		
+
+		
+</ui:composition>

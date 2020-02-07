@@ -1,0 +1,71 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+		template="editarMedico.xhtml">
+	
+		<f:metadata>
+        	<f:viewParam id="id" name="id" value="#{gestionMedicoBean.id}"/>
+        	<f:viewAction action="#{gestionMedicoBean.loadData()}" />
+ 		</f:metadata>
+		<ui:define name="nombreAdmin">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+		<ui:define name="editarMedico">
+			<h:form class="form-horizontal" id="form"  onload="ShowSelected()">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Cedula</label>
+                    <div class="col-sm-10">
+                      <h:inputText value="#{gestionMedicoBean.cedula}" pt:type="text" class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Nombre</label>
+                    <div class="col-sm-10">
+                      <h:inputText value="#{gestionMedicoBean.nombre}" pt:type="text" class="form-control"/>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Apellido</label>
+                    <div class="col-sm-10">
+                      <h:inputText value="#{gestionMedicoBean.apellido}" pt:type="text" class="form-control"/>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <h:inputText value="#{gestionMedicoBean.email}" pt:type="email" class="form-control"/>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Clave</label>
+                    <div class="col-sm-10">
+                      <h:inputText pt:type="password" value="#{gestionMedicoBean.clave}" class="form-control"/>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Fecha de Nacimiento</label>
+                    <div class="col-sm-10">
+                      <h:inputText value="#{gestionMedicoBean.fechaNac}" class="form-control"><f:convertDateTime pattern="yyyy/MM/dd"/></h:inputText>
+                    </div>
+                  </div>
+					<div class="form-group row">
+						<label for="inputPassword3" class="col-sm-2 col-form-label">Especialidad</label>
+                		<h:selectOneMenu id="medi" class="form-control select2" style="width: 100%;" value="#{gestionMedicoBean.especialidad}" converter="especialidadConverter">
+      						<f:selectItems value="#{gestionMedicoBean.especialidadesEditar}" var="e"
+      							itemLabel="#{e.nombre}" itemValue="#{e}"/>
+      					</h:selectOneMenu>
+              		</div> 
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <h:commandButton styleClass="btn btn-info" value="Guardar" action="#{gestionMedicoBean.editarMedico()}">
+					</h:commandButton>
+                </div>
+                <!-- /.card-footer -->
+              </h:form>
+		</ui:define>
+		
+</ui:composition>

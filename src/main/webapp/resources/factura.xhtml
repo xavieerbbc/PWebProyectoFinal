@@ -4,24 +4,22 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
-<h:head>
+<head>
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <title>Digital Medical | Paciente | Inicio</title>
+  <title>Facturación</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"/>
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
-  <!-- overlayScrollbars -->
+  <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css"/>
   <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
-</h:head>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>  
+</head>
 <body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
 <div class="wrapper">
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -41,7 +39,7 @@
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search"/>
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search"/>
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fas fa-search"></i>
@@ -154,7 +152,7 @@
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
            style="opacity: .8"/>
-      <span class="brand-text font-weight-light">Administrador</span>
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
     <!-- Sidebar -->
@@ -165,7 +163,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"/>
         </div>
         <div class="info">
-          <a href="#" class="d-block"> <h:commandLink action="#{gestionLoginBean.cerrarSesion()}" value="#{gestionLoginBean.nameUser.toLowerCase()}" /> </a>
+          <a href="#" class="d-block">Alexander Pierce</a>
         </div>
       </div>
 
@@ -174,22 +172,6 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item">
-            <a href="medicinas.xhtml" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Medicinas
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="especialidades.xhtml" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Especialidades
-              </p>
-            </a>
-          </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -341,13 +323,13 @@
               <li class="nav-item">
                 <a href="../UI/modals.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Modals and Alerts</p>
+                  <p>Modals  Alerts</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="../UI/navbar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Navbar and Tabs</p>
+                  <p>Navbar  Tabs</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -469,8 +451,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-book"></i>
               <p>
                 Pages
@@ -479,7 +461,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../examples/invoice.html" class="nav-link">
+                <a href="../examples/invoice.html" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Invoice</p>
                 </a>
@@ -528,8 +510,8 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
                 Extras
@@ -598,7 +580,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../examples/blank.html" class="nav-link active">
+                <a href="../examples/blank.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Blank Page</p>
                 </a>
@@ -716,282 +698,171 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Bienvenido <strong>#{gestionLoginBean.nameUser.toUpperCase()}</strong> </h1>
+            <h1>Facturación</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">Facturación</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
 
-    <!-- Main content -->
     <section class="content">
-    
-    <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Crear Medico</h3>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <!-- Main content -->
+            <div class="invoice p-3 mb-3">
+              <!-- title row -->
+              <div class="row">
+                <div class="col-12">
+                  <h4>
+                    <i class="fas fa-globe"></i>Digital Medical
+                    <small class="float-right">Date: 2/10/2014</small>
+                  </h4>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- info row -->
+              <div class="row invoice-info">
+                <div class="col-sm-4 invoice-col">
+                  Datos Medico
+                  <address>
+                    <strong>Admin, Inc.</strong><br/>
+                    795 Folsom Ave, Suite 600<br/>
+                    San Francisco, CA 94107<br/>
+                    Phone: (804) 123-5432<br/>
+                    Email: info@almasaeedstudio.com
+                  </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                  Datos Paciente
+                  <address>
+                    <strong>John Doe</strong><br/>
+                    795 Folsom Ave, Suite 600<br/>
+                    San Francisco, CA 94107<br/>
+                    Phone: (555) 539-1037<br/>
+                    Email: john.doe@example.com
+                  </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                  <b>Numero Factura #007612</b><br/>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          
-          <h:form>
-				
-				<h:panelGrid columns="2">
-		
-					<h:outputLabel value="Cedula" />
-					<h:inputText value="#{gestionMedicoBean.cedula}" class="form-control" />
-		
-					<h:outputLabel value="Nombre" />
-					<h:inputText value="#{gestionMedicoBean.nombre}"  class="form-control"/>
-					
-					<h:outputLabel value="Apellido" />
-					<h:inputText value="#{gestionMedicoBean.apellido}" class="form-control"/>
-					
-					<h:outputLabel value="Email" />
-					<h:inputText value="#{gestionMedicoBean.email}" class="form-control"/>
-					
-					<h:outputLabel value="Clave" />
-					<h:inputText value="#{gestionMedicoBean.clave}" class="form-control"/>
-					
-					<h:outputLabel value="Especialidad:" />
-					<div class="form-group">
-                		<h:selectOneMenu class="form-control select2" style="width: 100%;" value="#{gestionMedicoBean.especialidad}" converter="especialidadConverter">
-      						<f:selectItems value="#{gestionMedicoBean.especialidades}" var="e"
-      							itemLabel="#{e.nombre}" itemValue="#{e}"/>
-      					</h:selectOneMenu>
-              		</div>   
-					
-					
-					<h:outputLabel value="Fecha de nacimiento" />
-					<h:inputText value="#{gestionMedicoBean.fechaNac}" class="form-control"><f:convertDateTime pattern="yyyy/MM/dd"/></h:inputText>
-					
-					<h:commandButton styleClass="btn btn-default" value="Guardar" action="#{gestionMedicoBean.guardarMedico()}">
-					</h:commandButton>
-				</h:panelGrid>
-			
-			</h:form>
-          
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
+              <!-- Table row -->
+              <div class="row">
+                <div class="col-12 table-responsive">
+                  <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <th>Qty</th>
+                      <th>Product</th>
+                      <th>Serial #</th>
+                      <th>Description</th>
+                      <th>Subtotal</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Call of Duty</td>
+                      <td>455-981-221</td>
+                      <td>El snort testosterone trophy driving gloves handsome</td>
+                      <td>$64.50</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Need for Speed IV</td>
+                      <td>247-925-726</td>
+                      <td>Wes Anderson umami biodiesel</td>
+                      <td>$50.00</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Monsters DVD</td>
+                      <td>735-845-642</td>
+                      <td>Terry Richardson helvetica tousled street art master</td>
+                      <td>$10.70</td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Grown Ups Blue Ray</td>
+                      <td>422-568-642</td>
+                      <td>Tousled lomo letterpress</td>
+                      <td>$25.99</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Medicos</h3>
+              <div class="row">
+                <!-- accepted payments column -->
+                <div class="col-6">
+                </div>
+                <!-- /.col -->
+                <div class="col-6">
+                  <div class="table-responsive">
+                    <table class="table">
+                      <tr>
+                        <th style="width:50%">Subtotal:</th>
+                        <td>$250.30</td>
+                      </tr>
+                      <tr>
+                        <th>Tax (9.3%)</th>
+                        <td>$10.34</td>
+                      </tr>
+                      <tr>
+                        <th>Shipping:</th>
+                        <td>$5.80</td>
+                      </tr>
+                      <tr>
+                        <th>Total:</th>
+                        <td>$265.24</td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+                <!-- /.col -->
+              </div>
+              <!-- /.row -->
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          
-          <h:form>
-				<div class="row">
-					<div class="col-12 table-responsive">
-						<h:dataTable var="_medicos" value="#{gestionMedicoBean.medicos}"
-						styleClass="table table-striped">
-						<h:column>
-							<f:facet name="header">Codigo</f:facet>
-							#{_medicos.codigo}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Cedula</f:facet>
-							#{_medicos.cedula}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Nombre</f:facet>
-							#{_medicos.nombre}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Apellido</f:facet>
-							#{_medicos.apellido}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Email</f:facet>
-							#{_medicos.email}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Especialidad</f:facet>
-							#{_medicos.especialidad.nombre}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Fecha Nacimiento</f:facet>
-							#{_medicos.fechaNac}
-						</h:column>
-						
-						<h:column>
-							<f:facet name="header">Acciones</f:facet>
-							<div class="btn-group btn-group-sm">
-								<h:commandButton action="#{gestionMedicoBean.editar(_medicos)}" styleClass="btn btn-info" value="Editar" />
-								<h:commandButton action="#{gestionMedicoBean.eliminar(_medicos.codigo)}" styleClass="btn btn-danger" value="Eliminar" />
-							</div>
-							
-						</h:column>
-					</h:dataTable>
-					</div>
-				</div>
-			</h:form>
-          
-        </div>
-        <!-- /.card-body -->
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Crear Paciente</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          
-          <h:form>
-				
-				<h:panelGrid columns="2">
-		
-					<h:outputLabel value="Cedula" />
-					<h:inputText id="inputEstimatedBudget" styleClass="form-control" value="#{gestionPacienteBean.cedula}" />
-		
-					<h:outputLabel value="Nombre" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.nombre}" />
-					
-					<h:outputLabel value="Apellido" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.apellido}" />
-					
-					<h:outputLabel value="Email" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.email}" />
-					
-					<h:outputLabel value="Clave" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.clave}" />
-					
-					<h:outputLabel value="Fecha de nacimiento" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.fechaNac}" ><f:convertDateTime pattern="yyyy/MM/dd"/></h:inputText>
-					
-					<h:outputLabel value="Sexo" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.sexo}" />
-					
-					<h:commandButton value="Guardar" action="#{gestionPacienteBean.guardarPaciente()}" styleClass="btn btn-default">
-					</h:commandButton>
-					<h:commandButton value="Cerrar Sesion" action="#{gestionLoginBean.cerrarSesion()}" styleClass="btn btn-default">
-					</h:commandButton>
-				</h:panelGrid>
-			
-			</h:form>
-          
-        </div>
-        <!-- /.card-body -->
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-      
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Pacientes</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          
-          <h:form>
-				<div class="row">
-					<div class="col-12 table-responsive">
-						<h:dataTable var="_pacientes" value="#{gestionPacienteBean.pacientes}"
-						styleClass="table table-striped">
-						<h:column>
-							<f:facet name="header">Codigo</f:facet>
-							#{_pacientes.codigo}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Cedula</f:facet>
-							#{_pacientes.cedula}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Nombre</f:facet>
-							#{_pacientes.nombre}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Apellido</f:facet>
-							#{_pacientes.apellido}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Email</f:facet>
-							#{_pacientes.email}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Clave</f:facet>
-							#{_pacientes.clave}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Fecha Nacimiento</f:facet>
-							#{_pacientes.fechaNac}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Sexo</f:facet>
-							#{_pacientes.sexo}
-						</h:column>
-						
-						<h:column>
-							<f:facet name="header">Acciones</f:facet>
-							<div class="btn-group btn-group-sm">
-								<h:commandButton action="#{gestionPacienteBean.editar(_pacientes)}" styleClass="btn btn-info" value="Editar" />
-								<h:commandButton action="#{gestionPacienteBean.eliminar(_pacientes.codigo)}" styleClass="btn btn-danger" value="Eliminar"/>
-							</div>
-							
-						</h:column>
-					</h:dataTable>
-					</div>
-				</div>
-			</h:form>
-          
-        </div>
-        <!-- /.card-body -->
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-      
+              <!-- this row will not appear when printing -->
+              <div class="row no-print">
+                <div class="col-12">
+                  <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                  <button type="button" class="btn btn-success float-right"><i class="far fa-credit-card"></i> Submit
+                    Payment
+                  </button>
+                  <button type="button" class="btn btn-primary float-right" style="margin-right: 5px;">
+                    <i class="fas fa-download"></i> Generate PDF
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- /.invoice -->
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
-  <footer class="main-footer">
+  <footer class="main-footer no-print">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 1.0.0
+      <b>Version</b> 3.0.1
     </div>
-    <strong>Copyright 2014-2019 <a href="http://adminlte.io">Universidad Politécnica Salesiana</a>.</strong> All rights
+    <strong>Copyright copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
     reserved.
   </footer>
 

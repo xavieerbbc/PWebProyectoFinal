@@ -1,0 +1,87 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+		template="listarCitasMedico.xhtml">
+	
+		<ui:define name="nombreMedico">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+		
+		<ui:define name="listarCitasPendientes">
+			<h:form>
+				<div class="row">
+					<div class="col-12 table-responsive">
+						<h:dataTable var="_citas" value="#{gestionIndexMedicoBean.obtenerCitasPendientes(gestionLoginBean.medico)}"
+						styleClass="table table-striped">
+						<h:column>
+							<f:facet name="header">Codigo</f:facet>
+							#{_citas.codigo}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Paciente</f:facet>
+							#{_citas.paciente.nombre}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Fecha</f:facet>
+							#{_citas.fecha}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Hora</f:facet>
+							#{_citas.hora}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Estado</f:facet>
+							#{_citas.estado}
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Acciones</f:facet>
+							<div class="btn-group btn-group-sm">
+								<h:commandButton action="#{gestionIndexMedicoBean.agendarCita(_citas)}" styleClass="btn btn-info" value="Agendar" />
+								<h:commandButton action="#{gestionIndexMedicoBean.rechazarCita(_citas)}" styleClass="btn btn-danger" value="Rechazar" />
+							</div>
+							
+						</h:column>
+					</h:dataTable>
+					</div>
+				</div>
+			</h:form>  
+		</ui:define>
+		
+		
+		<ui:define name="listarCitasAgendadas">
+			<h:form>
+				<div class="row">
+					<div class="col-12 table-responsive">
+						<h:dataTable var="_citas" value="#{gestionIndexMedicoBean.obtenerCitasAgendadas(gestionLoginBean.medico)}"
+						styleClass="table table-striped">
+						<h:column>
+							<f:facet name="header">Codigo</f:facet>
+							#{_citas.codigo}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Paciente</f:facet>
+							#{_citas.paciente.nombre}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Fecha</f:facet>
+							#{_citas.fecha}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Hora</f:facet>
+							#{_citas.hora}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Estado</f:facet>
+							#{_citas.estado}
+						</h:column>
+						
+					</h:dataTable>
+					</div>
+				</div>
+			</h:form>  
+		</ui:define>
+		
+		
+</ui:composition>

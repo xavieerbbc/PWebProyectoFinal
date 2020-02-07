@@ -4,122 +4,296 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
-<h:head>
+<head>
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <title>My Health | Editar Medico</title>
+  <title>Digital Medical</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
   <!-- Font Awesome -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css"/>
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"/>
-  <!-- icheck bootstrap -->
+  <!-- Tempusdominus Bbootstrap 4 -->
+  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"/>
+  <!-- iCheck -->
   <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"/>
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css"/>
   <!-- Theme style -->
   <link rel="stylesheet" href="dist/css/adminlte.min.css"/>
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css"/>
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css"/>
+  <!-- summernote -->
+  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css"/>
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
   
-  <f:metadata>
-        <f:viewParam id="id" name="id" value="#{gestionMedicoBean.id}"/>
-        <f:viewAction action="#{gestionMedicoBean.loadData()}" />
- 	</f:metadata>
-  
-</h:head>
-<body >
-<div background="login.jpg" style="background-repeat: no-repeat; background-position: center center;">
-  <div class="login-logo" style="background-color: #A9D0F5 ;color:#fff" role="navigation">
-    <a href="index2.html"><b>My </b> Health</a>
-  </div>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 
-  <div class="card">
-    <div class="card-body register-card-body">
-      <p class="login-box-msg">Editar Medico</p>
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="PaginaPrincipalAdministrador.xhtml" class="nav-link">Home</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <ui:insert name="cerrarSesion"></ui:insert>
+      </li>
+    </ul>
+    <!-- Right navbar links -->
+  </nav>
+  <!-- /.navbar -->
 
-      <h:form>
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8"/>
+      <span class="brand-text font-weight-light">Administrador</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="info">
+          <a href="PaginaEditarPerfil.xhtml" class="d-block"><ui:insert name="nombreAdmin"></ui:insert></a>
+        </div>
+      </div>
+
+      <!-- MENU PRINCIPAL -->
       
-      	<div class="input-group mb-3">
-          <h:inputText value="#{gestionMedicoBean.cedula}" class="form-control" pt:placeholder="Cedula" pt:type="text"/>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
-        
-      	<div class="input-group mb-3">
-          <h:inputText value="#{gestionMedicoBean.nombre}" pt:type="text" class="form-control" pt:placeholder="Nombre"/>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
-      	
-        <div class="input-group mb-3">
-          <h:inputText value="#{gestionMedicoBean.apellido}" pt:type="text" class="form-control" pt:placeholder="Apellido"/>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="input-group mb-3">
-          <h:inputText value="#{gestionMedicoBean.email}" pt:type="email" class="form-control" pt:placeholder="Email"/>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Menu de Creación
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="PaginaCrearMedico.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Medico</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="PaginaCrearPaciente.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Paciente</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="PaginaCrearEspecialidad.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Especialidad</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="PaginaCrearMedicamento.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear Medicamento</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           
-        </div>
-        <div class="input-group mb-3">
-          <h:inputText value="#{gestionMedicoBean.clave}" pt:type="password" class="form-control" pt:placeholder="Contraseña"/>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Repetir contraseña"/>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        
-        
-        <div class="input-group mb-3">
-          <h:inputText value="#{gestionMedicoBean.fechaNac}" class="form-control" pt:placeholder="Fecha de nacimiento" ><f:convertDateTime pattern="yyyy/MM/dd"/></h:inputText>
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-calendar"></span>
-            </div>
-          </div>
-        </div>
-        
-        
-        <h:commandButton value="Actualizar" action="#{gestionMedicoBean.editarMedico()}" class="btn btn-primary btn-block"></h:commandButton>
-        
-      </h:form>
-
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Ver Listas
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="PaginaListarPacientes.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listar Pacientes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="PaginaListarMedicos.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listar Medicos</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a href="PaginaListarEspecialidades.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listar Especialidades</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/boxed.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listar Recetas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listar Facturas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listar Asientos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="PaginaListarMedicamentos.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listar Medicamentos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Listar Historiales</p>
+                </a>
+              </li>
+            </ul>
+         </li>
+         <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Configuración
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="PaginaEditarPerfil.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Editar Perfil</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="PaginaCambiarClave.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cambiar Contraseña</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      
+      <!-- /.TERMINA MENU PRINCIPAL -->
     </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
+    <!-- /.sidebar -->
+  </aside>
+	
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-dark">Editar Médico</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item">Editar Médico</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card card-info">
+        <div class="card-header">
+          <h3 class="card-title">Estos son los Datos del Médico</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        <div class="card-body">
+        	<ui:insert name="editarMedico"></ui:insert>    
+        </div>
+      </div>
+    </section>
+    <!-- /.content-header -->
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="main-footer">
+    <strong>Copyright copy; 2014-2019 <a href="http://adminlte.io">Universidad Politécnica Salesiana</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 3.0.2
+    </div>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
 </div>
-<!-- /.register-box -->
+<!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
 </body>
 </html>

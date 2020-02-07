@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+		template="listarPacientes.xhtml">
+	
+		<ui:define name="nombreAdmin">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+		
+		<ui:define name="listarPacientes">
+			<h:form>
+				<div class="row">
+					<div class="col-12 table-responsive">
+						<h:dataTable var="_pacientes" value="#{gestionPacienteBean.pacientes}"
+						styleClass="table table-striped">
+						<h:column>
+							<f:facet name="header">Codigo</f:facet>
+							#{_pacientes.codigo}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Cedula</f:facet>
+							#{_pacientes.cedula}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nombre</f:facet>
+							#{_pacientes.nombre}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Apellido</f:facet>
+							#{_pacientes.apellido}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Email</f:facet>
+							#{_pacientes.email}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Clave</f:facet>
+							#{_pacientes.clave}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Fecha Nacimiento</f:facet>
+							#{_pacientes.fechaNac}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Sexo</f:facet>
+							#{_pacientes.sexo}
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Acciones</f:facet>
+							<div class="btn-group btn-group-sm">
+								<h:commandButton action="#{gestionPacienteBean.editar(_pacientes)}" styleClass="btn btn-info" value="Editar" />
+								<h:commandButton action="#{gestionPacienteBean.eliminar(_pacientes.codigo)}" styleClass="btn btn-danger" value="Eliminar"/>
+							</div>
+							
+						</h:column>
+					</h:dataTable>
+					</div>
+				</div>
+			</h:form>
+		</ui:define>
+		
+		
+</ui:composition>

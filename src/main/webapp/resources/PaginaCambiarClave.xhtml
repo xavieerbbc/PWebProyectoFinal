@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+		template="cambiarClave.xhtml">
+	
+		<ui:define name="nombreAdmin">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+		
+		<ui:define name="cambiarClave">
+			<h:form class="form-horizontal">
+	            	<div class="card-body">
+	            		<div class="form-group row">
+	                	<label for="inputName" class="col-sm-2 col-form-label">Nueva Contraseña</label>
+	                    	<div class="col-sm-10">
+	                          <h:inputText value="#{gestionLoginBean.nuevaContrasena}" pt:type="password" class="form-control" />
+	                        </div>
+	                </div>
+	                <div class="form-group row">
+	                	<label for="inputName" class="col-sm-2 col-form-label">Repetir nueva contraseña</label>
+	                    	<div class="col-sm-10">
+	                          <h:inputText value="#{gestionLoginBean.repiteContrasena}" pt:type="password" class="form-control" />
+	                        </div>
+	                </div>
+	                      <div class="form-group row">
+	                        <div class="offset-sm-2 col-sm-10">
+	                          <h:commandButton styleClass="btn btn-danger" value="Guardar" action="#{gestionLoginBean.editarClaveAdministrador()}">
+							  </h:commandButton>	 
+	                        </div>
+	                      </div>   
+	            	</div> 
+	            </h:form>  
+		</ui:define>
+		
+		
+		
+</ui:composition>

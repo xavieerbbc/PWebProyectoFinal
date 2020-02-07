@@ -1,0 +1,67 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+		template="listarMedicos.xhtml">
+	
+		<ui:define name="nombreAdmin">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+		
+		<ui:define name="listarMedicos">
+			
+			<h:form>
+				<div class="row">
+					<div class="col-12 table-responsive">
+						<h:dataTable var="_medicos" value="#{gestionMedicoBean.medicos}"
+						styleClass="table table-striped">
+						<h:column>
+							<f:facet name="header">Codigo</f:facet>
+							#{_medicos.codigo}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Cedula</f:facet>
+							#{_medicos.cedula}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Nombre</f:facet>
+							#{_medicos.nombre}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Apellido</f:facet>
+							#{_medicos.apellido}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Email</f:facet>
+							#{_medicos.email}
+						</h:column>
+						<h:column>
+							<f:facet name="header" >Clave</f:facet>
+							#{_medicos.clave}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Fecha Nacimiento</f:facet>
+							#{_medicos.fechaNac}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Especialidad</f:facet>
+							#{_medicos.especialidad.nombre}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Acciones</f:facet>
+							<div class="btn-group btn-group-sm">
+								<h:commandButton action="#{gestionMedicoBean.editar(_medicos)}" styleClass="btn btn-info" value="Editar" />
+								<h:commandButton action="#{gestionMedicoBean.eliminar(_medicos.codigo)}" styleClass="btn btn-danger" value="Eliminar" />
+							</div>
+							
+						</h:column>
+					</h:dataTable>
+					</div>
+				</div>
+			</h:form>
+		
+		</ui:define>
+		
+		
+</ui:composition>

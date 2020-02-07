@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css"/>
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
-  <link rel="stylesheet" href="build/js/jquery.timepicker.min.css"/>
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -43,7 +43,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="PaginaPrincipalAdministrador.xhtml" class="nav-link">Home</a>
+        <a href="PaginaPrincipalMedico.xhtml" class="nav-link">Home</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -58,10 +58,10 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="PaginaPrincipalMedico.xhtml" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8"/>
-      <span class="brand-text font-weight-light">Administrador</span>
+      <span class="brand-text font-weight-light">Medico</span>
     </a>
 
     <!-- Sidebar -->
@@ -69,7 +69,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="info">
-          <a href="PaginaEditarPerfil.xhtml" class="d-block"><ui:insert name="nombreAdmin"></ui:insert></a>
+          <a href="PaginaEditarPerfilMedico.xhtml" class="d-block"><ui:insert name="nombreMedico"></ui:insert></a>
         </div>
       </div>
 
@@ -83,33 +83,39 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
-                Menu de Creación
+                Citas
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="PaginaCrearMedico.xhtml" class="nav-link">
+                <a href="PaginaListarCitasMedico.xhtml" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Medico</p>
+                  <p>Mis Citas</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+               
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Recetas
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="PaginaCrearRecetasMedico.xhtml" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Nueva Receta</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="PaginaCrearPaciente.xhtml" class="nav-link">
+                <a href="PaginaListarRecetasMedico.xhtml" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Paciente</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="PaginaCrearEspecialidad.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Especialidad</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="PaginaCrearMedicamento.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Crear Medicamento</p>
+                  <p>Ver Recetas</p>
                 </a>
               </li>
             </ul>
@@ -119,57 +125,21 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Ver Listas
+                Historial Pacientes
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="PaginaListarPacientes.xhtml" class="nav-link">
+                <a href="PaginaCrearHistorialesMedico.xhtml" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listar Pacientes</p>
+                  <p>Nuevo Historial</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="PaginaListarMedicos.xhtml" class="nav-link">
+                <a href="PaginaListarHistorialesMedico.xhtml" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Listar Medicos</p>
-                </a>
-              </li>
-               <li class="nav-item">
-                <a href="PaginaListarEspecialidades.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Listar Especialidades</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Listar Recetas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Listar Facturas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Listar Asientos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="PaginaListarMedicamentos.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Listar Medicamentos</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Listar Historiales</p>
+                  <p>Ver Historiales</p>
                 </a>
               </li>
             </ul>
@@ -184,13 +154,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="PaginaEditarPerfil.xhtml" class="nav-link">
+                <a href="PaginaEditarPerfilMedico.xhtml" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Editar Perfil</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="PaginaCambiarClave.xhtml" class="nav-link">
+                <a href="PaginaCambiarClaveMedico.xhtml" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Cambiar Contraseña</p>
                 </a>
@@ -204,7 +174,7 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-	
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -212,37 +182,72 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Crear Médico</h1>
+            <h1 class="m-0 text-dark">Bienvenido a la Página del Medico</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Crear Médico</li>
+              <li class="breadcrumb-item active">Principal</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <section class="content">
-
-      <!-- Default box -->
-      <div class="card card-info">
-        <div class="card-header">
-          <h3 class="card-title">Ingrese los Datos</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-        	<ui:insert name="crearMedico"></ui:insert>
-        </div>
-      </div>
-    </section>
     <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+          <div class="col-md-4">
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-5">
+            <!-- Widget: user widget style 1 -->
+            <div class="card card-widget widget-user">
+              <!-- Add the bg color to the header using any of the bg-* classes -->
+              <div class="widget-user-header bg-info">
+                <h3 class="widget-user-username"><ui:insert name="nombreMedico"></ui:insert></h3>
+                <h5 class="widget-user-desc">Médico</h5>
+              </div>
+              <div class="card-footer">
+                <div class="row">
+                  <!-- /.col -->
+                  <div class="col-sm-6 border-right">
+                    <div class="description-block">
+                      <h5 class="description-header">Cédula</h5>
+                      <span class="description-text"><ui:insert name="cedula"></ui:insert></span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                  <div class="col-sm-6">
+                    <div class="description-block">
+                      <h5 class="description-header">Correo</h5>
+                      <span class="description-text"><ui:insert name="correo"></ui:insert></span>
+                    </div>
+                    <!-- /.description-block -->
+                  </div>
+                  <!-- /.col -->
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-4">
+          </div>
+          <!-- /.col -->
+        </div>
+        
+        
+
+        
+      </div><!-- /.container-fluid -->
+    </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -261,6 +266,7 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -295,21 +301,5 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-<script src="build/js/jquery.timepicker.min.js"></script>  
-<script type="text/javascript">
- $(document).ready(function(){
- 	$("#form\\:time").timepicker({
- 	    timeFormat: 'H:mm ',
- 	    interval: 45,
- 	    minTime: '10',
- 	    maxTime: '20:00',
- 	    defaultTime: '10',
- 	    startTime: '10:00',
- 	    dynamic: false,
- 	    dropdown: true,
- 	    scrollbar: true
- 	});
-  });
-</script>
 </body>
 </html>

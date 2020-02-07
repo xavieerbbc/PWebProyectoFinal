@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css"/>
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"/>
-  <link rel="stylesheet" href="build/js/jquery.timepicker.min.css"/>
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -212,12 +212,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Crear Médico</h1>
+            <h1 class="m-0 text-dark">Crear Especialidad</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Crear Médico</li>
+              <li class="breadcrumb-item active">Crear Especialidad</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -238,7 +238,7 @@
           </div>
         </div>
         <div class="card-body">
-        	<ui:insert name="crearMedico"></ui:insert>
+        	<ui:insert name="crearEspecialidad"></ui:insert>    
         </div>
       </div>
     </section>
@@ -261,6 +261,7 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
+
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
@@ -295,21 +296,5 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
-<script src="build/js/jquery.timepicker.min.js"></script>  
-<script type="text/javascript">
- $(document).ready(function(){
- 	$("#form\\:time").timepicker({
- 	    timeFormat: 'H:mm ',
- 	    interval: 45,
- 	    minTime: '10',
- 	    maxTime: '20:00',
- 	    defaultTime: '10',
- 	    startTime: '10:00',
- 	    dynamic: false,
- 	    dropdown: true,
- 	    scrollbar: true
- 	});
-  });
-</script>
 </body>
 </html>

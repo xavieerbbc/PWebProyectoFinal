@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<title>Registrarse</title>
+<title>Digital Medical | Página de Registro</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -26,15 +26,15 @@
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700"
 	rel="stylesheet" />
 </head>
-<body>
-	<div  background="login.jpg" style="background-repeat: no-repeat; background-position: center center;">
-		<div class="login-logo" style="background-color: #A9D0F5 ;color:#fff" role="navigation">
-			<a href="index2.html"><b>My </b> Health </a>
+<body class="hold-transition register-page">
+	<div class="register-box">
+		<div class="register-logo">
+			<a href="index2.html"><b>Digital</b>Medical</a>
 		</div>
 
 		<div class="card">
 			<div class="card-body register-card-body">
-				<p class="login-box-msg">REGISTRAR PACIENTE</p>
+				<p class="login-box-msg">Registrar un nuevo paciente</p>
 
 				<h:form>
 
@@ -97,8 +97,9 @@
 					</div>
 
 					<div class="input-group mb-3">
-						<input type="password" class="form-control"
-							placeholder="Repetir contraseña" />
+						<h:inputText value="#{gestionPacienteBean.clave2}"
+							pt:type="password" class="form-control"
+							pt:placeholder="Repetir Contraseña" />
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-lock"></span>
@@ -131,12 +132,12 @@
 
 
 
-			<div class="input-group mb-3">
+					<div class="input-group mb-3">
 						<h:outputLabel
-							value="Ingrese correo de recuperacion" />
+							value="Pregunta Secreta: ¿Cual es el nombre de tu abuela?" />
 						<h:inputText value="#{gestionPacienteBean.preguntaSecreta}"
 							pt:type="text" class="form-control"
-							pt:placeholder="example@gmail.com" />
+							pt:placeholder="Pregunta Secreta" />
 						<div class="input-group-append">
 							<div class="input-group-text">
 								<span class="fas fa-user-secret"></span>
@@ -144,8 +145,9 @@
 						</div>
 					</div>
 
+					<h:messages globalOnly="true" />
 					<h:commandButton value="Registrar"
-						action="#{gestionPacienteBean.guardarPaciente()}"
+						action="#{gestionPacienteBean.guardarPaciente2()}"
 						class="btn btn-primary btn-block"></h:commandButton>
 
 				</h:form>

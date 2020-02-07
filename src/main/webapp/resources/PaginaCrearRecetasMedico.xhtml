@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+		template="crearRecetasMedico.xhtml">
+	
+		<ui:define name="nombreMedico">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+		
+		<ui:define name="crearRecetas">
+		
+		<h:form>
+        		
+        		<div class="input-group mb-3">
+          			<h:inputText  value="#{gestionRecetaBean.receta.fechaEmision}" class="form-control" pt:placeholder="Fecha:" ><f:convertDateTime pattern="yyyy/MM/dd"/></h:inputText>
+          			<div class="input-group-append">
+            			<div class="input-group-text">
+              				<span class="fas fa-calendar"></span>
+            			</div>
+          			</div>
+        		</div>
+        		
+        		<div class="form-group">
+              		<h:outputText value="Paciente:" />
+                	<h:selectOneMenu class="form-control select2" style="width: 100%;" value="#{gestionRecetaBean.receta.paciente}" converter="pacienteConverter">
+      					<f:selectItems value="#{gestionRecetaBean.pacientes}" var="p"
+      						itemLabel="#{p.nombre}" itemValue="#{p}"/>
+      				</h:selectOneMenu>
+              	</div>   
+              	
+              	<h:commandButton styleClass="btn btn-success" action="#{gestionRecetaBean.addDetalle()}" value="Agregar medicamento" >
+              		<f:ajax render="tblDetalle" execute="@all" />
+              	</h:commandButton>
+              	
+              	<h:dataTable style="width:100%" var="_detalle" value="#{gestionRecetaBean.receta.detalle}" id="tblDetalle">
+              		<h:column>
+              			
+              			<f:facet name="header">Medicamento</f:facet>
+              			<h:selectOneMenu class="form-control select2" style="width: 100%;" value="#{_detalle.medicina}" converter="medicinaConverter">
+      						<f:selectItems value="#{gestionRecetaBean.medicinas}" var="r"
+      							itemLabel="#{r.nombre}" itemValue="#{r}"/>
+      					</h:selectOneMenu>
+              		</h:column>
+              		<h:column>
+              			<f:facet name="header">Dosis</f:facet>
+              			<h:inputText styleClass="form-control input-sm" value="#{_detalle.dosis}" />
+              		</h:column>
+              	</h:dataTable>
+              	
+              	<h:commandButton class="btn btn-info" action="#{gestionRecetaBean.guardar(gestionLoginBean.email)}" value="Guardar" />
+              	
+        	
+        	</h:form>
+			
+		
+		</ui:define>
+		
+
+		
+</ui:composition>

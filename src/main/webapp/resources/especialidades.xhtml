@@ -7,7 +7,7 @@
 <h:head>
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <title>Digital Medical | Paciente | Inicio</title>
+  <title>Digital Medical | Administrador | Especialidad</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
@@ -165,7 +165,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image"/>
         </div>
         <div class="info">
-          <a href="#" class="d-block"> <h:commandLink action="#{gestionLoginBean.cerrarSesion()}" value="#{gestionLoginBean.nameUser.toLowerCase()}" /> </a>
+          <a href="#" class="d-block"><ui:insert name="user"></ui:insert></a>
         </div>
       </div>
 
@@ -174,6 +174,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a href="indexAdmin.xhtml" class="nav-link">
+              <i class="nav-icon far fa-image"></i>
+              <p>
+                Inicio
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="medicinas.xhtml" class="nav-link">
               <i class="nav-icon far fa-image"></i>
@@ -716,7 +724,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Bienvenido <strong>#{gestionLoginBean.nameUser.toUpperCase()}</strong> </h1>
+            <h1>Medicinas</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -734,254 +742,70 @@
     <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Crear Medico</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
+          <h3 class="card-title">Crear Especialidad</h3>
         </div>
         <div class="card-body">
-          
-          <h:form>
-				
-				<h:panelGrid columns="2">
+        	<h:form>
+        		<h:panelGrid columns="2">
+        			<h:outputLabel value="Nombre de la especialidad: " />
+					<h:inputText value="#{gestionEspecialidadBean.nombre}" class="form-control"/>
 		
-					<h:outputLabel value="Cedula" />
-					<h:inputText value="#{gestionMedicoBean.cedula}" class="form-control" />
-		
-					<h:outputLabel value="Nombre" />
-					<h:inputText value="#{gestionMedicoBean.nombre}"  class="form-control"/>
-					
-					<h:outputLabel value="Apellido" />
-					<h:inputText value="#{gestionMedicoBean.apellido}" class="form-control"/>
-					
-					<h:outputLabel value="Email" />
-					<h:inputText value="#{gestionMedicoBean.email}" class="form-control"/>
-					
-					<h:outputLabel value="Clave" />
-					<h:inputText value="#{gestionMedicoBean.clave}" class="form-control"/>
-					
-					<h:outputLabel value="Especialidad:" />
-					<div class="form-group">
-                		<h:selectOneMenu class="form-control select2" style="width: 100%;" value="#{gestionMedicoBean.especialidad}" converter="especialidadConverter">
-      						<f:selectItems value="#{gestionMedicoBean.especialidades}" var="e"
-      							itemLabel="#{e.nombre}" itemValue="#{e}"/>
-      					</h:selectOneMenu>
-              		</div>   
-					
-					
-					<h:outputLabel value="Fecha de nacimiento" />
-					<h:inputText value="#{gestionMedicoBean.fechaNac}" class="form-control"><f:convertDateTime pattern="yyyy/MM/dd"/></h:inputText>
-					
-					<h:commandButton styleClass="btn btn-default" value="Guardar" action="#{gestionMedicoBean.guardarMedico()}">
-					</h:commandButton>
-				</h:panelGrid>
-			
-			</h:form>
-          
+					<h:outputLabel value="Descripción:" />
+        		</h:panelGrid>
+        		<div class="box-body pad">
+              		<h:inputTextarea value="#{gestionEspecialidadBean.descripcion}" pt:maxlength="250" class="textarea" pt:placeholder="Ingrese la descripcion del medicamento."
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></h:inputTextarea>
+            	</div>
+            	<h:commandButton styleClass="btn btn-default" value="Guardar Especialidad" action="#{gestionEspecialidadBean.guardar()}">
+				</h:commandButton>
+        	</h:form>
         </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
       </div>
       <!-- /.card -->
-
-      <!-- Default box -->
+      
+          <!-- Default box -->
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">Medicos</h3>
-
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
+          <h3 class="card-title">Lista de especialidades</h3>
         </div>
         <div class="card-body">
-          
-          <h:form>
+        
+        <h:form>
 				<div class="row">
 					<div class="col-12 table-responsive">
-						<h:dataTable var="_medicos" value="#{gestionMedicoBean.medicos}"
+						<h:dataTable var="_especialidades" value="#{gestionEspecialidadBean.especialidades}"
 						styleClass="table table-striped">
 						<h:column>
 							<f:facet name="header">Codigo</f:facet>
-							#{_medicos.codigo}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Cedula</f:facet>
-							#{_medicos.cedula}
+							#{_especialidades.codigo}
 						</h:column>
 						<h:column>
 							<f:facet name="header">Nombre</f:facet>
-							#{_medicos.nombre}
+							#{_especialidades.nombre}
 						</h:column>
 						<h:column>
-							<f:facet name="header">Apellido</f:facet>
-							#{_medicos.apellido}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Email</f:facet>
-							#{_medicos.email}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Especialidad</f:facet>
-							#{_medicos.especialidad.nombre}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Fecha Nacimiento</f:facet>
-							#{_medicos.fechaNac}
-						</h:column>
-						
+							<f:facet name="header">Descripcion</f:facet>
+							#{_especialidades.descripcion}
+						</h:column>	
 						<h:column>
 							<f:facet name="header">Acciones</f:facet>
 							<div class="btn-group btn-group-sm">
-								<h:commandButton action="#{gestionMedicoBean.editar(_medicos)}" styleClass="btn btn-info" value="Editar" />
-								<h:commandButton action="#{gestionMedicoBean.eliminar(_medicos.codigo)}" styleClass="btn btn-danger" value="Eliminar" />
+								<h:commandButton action="#" styleClass="btn btn-info" value="Editar" />
+								<h:commandButton action="#{gestionEspecialidadBean.eliminar(_especialidades.codigo)}" styleClass="btn btn-danger" value="Eliminar" />
 							</div>
-							
 						</h:column>
 					</h:dataTable>
 					</div>
 				</div>
 			</h:form>
-          
+        
         </div>
-        <!-- /.card-body -->
-        <!-- /.card-footer-->
       </div>
       <!-- /.card -->
 
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Crear Paciente</h3>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          
-          <h:form>
-				
-				<h:panelGrid columns="2">
-		
-					<h:outputLabel value="Cedula" />
-					<h:inputText id="inputEstimatedBudget" styleClass="form-control" value="#{gestionPacienteBean.cedula}" />
-		
-					<h:outputLabel value="Nombre" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.nombre}" />
-					
-					<h:outputLabel value="Apellido" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.apellido}" />
-					
-					<h:outputLabel value="Email" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.email}" />
-					
-					<h:outputLabel value="Clave" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.clave}" />
-					
-					<h:outputLabel value="Fecha de nacimiento" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.fechaNac}" ><f:convertDateTime pattern="yyyy/MM/dd"/></h:inputText>
-					
-					<h:outputLabel value="Sexo" />
-					<h:inputText class="form-control" value="#{gestionPacienteBean.sexo}" />
-					
-					<h:commandButton value="Guardar" action="#{gestionPacienteBean.guardarPaciente()}" styleClass="btn btn-default">
-					</h:commandButton>
-					<h:commandButton value="Cerrar Sesion" action="#{gestionLoginBean.cerrarSesion()}" styleClass="btn btn-default">
-					</h:commandButton>
-				</h:panelGrid>
-			
-			</h:form>
-          
-        </div>
-        <!-- /.card-body -->
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-      
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Pacientes</h3>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-              <i class="fas fa-minus"></i></button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fas fa-times"></i></button>
-          </div>
-        </div>
-        <div class="card-body">
-          
-          <h:form>
-				<div class="row">
-					<div class="col-12 table-responsive">
-						<h:dataTable var="_pacientes" value="#{gestionPacienteBean.pacientes}"
-						styleClass="table table-striped">
-						<h:column>
-							<f:facet name="header">Codigo</f:facet>
-							#{_pacientes.codigo}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Cedula</f:facet>
-							#{_pacientes.cedula}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Nombre</f:facet>
-							#{_pacientes.nombre}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Apellido</f:facet>
-							#{_pacientes.apellido}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Email</f:facet>
-							#{_pacientes.email}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Clave</f:facet>
-							#{_pacientes.clave}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Fecha Nacimiento</f:facet>
-							#{_pacientes.fechaNac}
-						</h:column>
-						<h:column>
-							<f:facet name="header">Sexo</f:facet>
-							#{_pacientes.sexo}
-						</h:column>
-						
-						<h:column>
-							<f:facet name="header">Acciones</f:facet>
-							<div class="btn-group btn-group-sm">
-								<h:commandButton action="#{gestionPacienteBean.editar(_pacientes)}" styleClass="btn btn-info" value="Editar" />
-								<h:commandButton action="#{gestionPacienteBean.eliminar(_pacientes.codigo)}" styleClass="btn btn-danger" value="Eliminar"/>
-							</div>
-							
-						</h:column>
-					</h:dataTable>
-					</div>
-				</div>
-			</h:form>
-          
-        </div>
-        <!-- /.card-body -->
-        <!-- /.card-footer-->
-      </div>
-      <!-- /.card -->
-      
+            
     </section>
     <!-- /.content -->
   </div>

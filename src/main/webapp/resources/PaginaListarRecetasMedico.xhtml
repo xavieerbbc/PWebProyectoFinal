@@ -1,0 +1,49 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+		template="listarRecetasMedico.xhtml">
+	
+		<ui:define name="nombreMedico">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+		
+		<ui:define name="listarRecetas">
+		
+			<h:form id="formListaReceta">
+				<div class="row">
+					<div class="col-12 table-responsive">
+						<h:dataTable id="recetas" var="_recetas" value="#{gestionRecetaBean.obtenerRecetasMedico(gestionLoginBean.medico)}"
+						styleClass="table table-striped">
+						<h:column>
+							<f:facet name="header">Codigo</f:facet>
+							#{_recetas.codigo}
+							<h:outputText value="#{_recetas.codigo}" id="cod" style="display:none;" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Paciente</f:facet>
+							#{_recetas.paciente.nombre}
+						</h:column>
+						<h:column>
+							<f:facet name="header">Fecha de emision</f:facet>
+							#{_recetas.fechaEmision}
+						</h:column>
+						
+						<h:column>
+							<f:facet name="header">Acciones</f:facet>
+							<div class="btn-group btn-group-sm">
+								<h:commandButton action="#{gestionRecetaBean.editar(_recetas)}" styleClass="btn btn-info" value="Editar" />
+								<h:commandButton action="#{gestionRecetaBean.eliminar(_recetas.codigo)}" styleClass="btn btn-danger" value="Eliminar" />
+							</div>
+							
+						</h:column>
+					</h:dataTable>
+					</div>
+				</div>
+			</h:form>
+		
+		</ui:define>
+		
+
+		
+</ui:composition>
