@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -7,10 +8,13 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -37,6 +41,9 @@ public class Medico {
 	
 	@Temporal(TemporalType.DATE)
 	private Date fechaNac;
+	
+	@OneToOne
+	private Especialidad especialidad;
 	
 	public void addTelefono(Telefono t) {
 		if(this.telefonos==null) {
@@ -111,12 +118,19 @@ public class Medico {
 	public void setFechaNac(Date fechaNac) {
 		this.fechaNac = fechaNac;
 	}
+	public Especialidad getEspecialidad() {
+		return especialidad;
+	}
+	public void setEspecialidad(Especialidad especialidad) {
+		this.especialidad = especialidad;
+	}
 	@Override
 	public String toString() {
 		return "Medico [codigo=" + codigo + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
 				+ ", email=" + email + ", clave=" + clave + ", rol=" + rol + ", telefonos=" + telefonos
-				+ ", direcciones=" + direcciones + ", fechaNac=" + fechaNac + "]";
+				+ ", direcciones=" + direcciones + ", fechaNac=" + fechaNac + ", especialidad=" + especialidad + "]";
 	}
+	
 	
 	
 }

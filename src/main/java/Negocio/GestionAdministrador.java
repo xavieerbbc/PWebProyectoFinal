@@ -16,7 +16,6 @@ public class GestionAdministrador implements GestionAdministradorLocal {
 	
 	@Override
 	public void insertar(Administrador administrador) {
-		// TODO Auto-generated method stub
 		dao.insertar(administrador);
 		System.out.println(administrador.toString());
 
@@ -24,26 +23,22 @@ public class GestionAdministrador implements GestionAdministradorLocal {
 
 	@Override
 	public List<Administrador> getAdministradores() {
-		// TODO Auto-generated method stub
 		return dao.getAdministradores();
 	}
 
 	@Override
 	public Administrador leer(String cedula) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void borrar(String cedula) {
-		// TODO Auto-generated method stub
-		
+	public void borrar(int codigo) {
+		dao.borrar(codigo);
 	}
 
 	@Override
 	public void actualizar(Administrador administrador) {
-		// TODO Auto-generated method stub
-		
+		dao.actualizar(administrador);
 	}
 
 }

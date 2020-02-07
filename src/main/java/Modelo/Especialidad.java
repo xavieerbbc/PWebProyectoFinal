@@ -1,6 +1,7 @@
 package Modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
@@ -8,8 +9,9 @@ public class Especialidad {
 
 	@Id
 	private int codigo;
-	private String nombre;
 	
+	private String nombre;
+	private String descripcion;
 	public int getCodigo() {
 		return codigo;
 	}
@@ -22,10 +24,18 @@ public class Especialidad {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
 	@Override
 	public String toString() {
-		return "Especialidad [codigo=" + codigo + ", nombre=" + nombre + "]";
+		return "Especialidad [codigo=" + codigo + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
 	}
+	
+	
 	
 	
 }

@@ -1,7 +1,13 @@
 package Vista;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Scanner;
+
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
+import javax.servlet.http.Part;
 
 import Modelo.Administrador;
 import Modelo.Rol;
@@ -23,6 +29,7 @@ public class GestionAdministradorBean {
 	private String email;
 	private String clave;
 	private Rol rol;
+	
 	public GestionAdministradorLocal getGal() {
 		return gal;
 	}
@@ -78,9 +85,8 @@ public class GestionAdministradorBean {
 		this.rol = rol;
 	}
 	
-	public void guardarAdministrador(){
+	public void guardarAdministrador() throws IOException{
 		Administrador administrador=new Administrador();
-		administrador.setCodigo(this.gal.getAdministradores().size()+1);
 		administrador.setCedula(this.cedula);
 		administrador.setNombre(this.nombre);
 		administrador.setApellido(this.apellido);

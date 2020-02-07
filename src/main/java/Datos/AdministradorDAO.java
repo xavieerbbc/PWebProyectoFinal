@@ -23,12 +23,12 @@ public class AdministradorDAO {
 		em.merge(administrador);
 	}
 	
-	public void borrar(String cedula) {
-		em.remove(leer(cedula));
+	public void borrar(int codigo) {
+		em.remove(leer(codigo));
 	}
 	
-	public Administrador leer(String cedula) {
-		return em.find(Administrador.class, cedula);
+	public Administrador leer(int codigo) {
+		return em.find(Administrador.class, codigo);
 	}
 	
 	public List<Administrador> getAdministradores(){

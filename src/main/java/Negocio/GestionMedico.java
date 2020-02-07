@@ -1,5 +1,6 @@
 package Negocio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -42,6 +43,22 @@ public class GestionMedico implements GestionMedicoLocal {
 	public List<Medico> getMedicos() {
 		// TODO Auto-generated method stub
 		return dao.getMedicos();
+	}
+	
+	public Medico buscarMedicoxEmail(String email) {
+		List<Medico> medicos = new ArrayList<Medico>();
+		medicos = this.dao.getMedicos();
+		for(Medico m: medicos) {
+			if(m.getEmail().equals(email)) {
+				return m;
+			}
+		}
+		return null;
+	}
+	@Override
+	public List<Medico> getMedicoPorEspecialidad(int filtro){
+		// TODO Auto-generated method stub
+		return dao.getMedicosPorEspecialidad(filtro);
 	}
 
 }

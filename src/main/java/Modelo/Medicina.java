@@ -8,9 +8,9 @@ public class Medicina {
 
 	@Id
 	private int codigo;
+	
 	private String nombre;
 	private String descripcion;
-	
 	public int getCodigo() {
 		return codigo;
 	}
@@ -32,7 +32,6 @@ public class Medicina {
 	@Override
 	public String toString() {
 		return "Medicina [codigo=" + codigo + ", nombre=" + nombre + ", descripcion=" + descripcion + "]";
-	}
-	
+	}	
 	
 }

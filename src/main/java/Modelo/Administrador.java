@@ -1,13 +1,18 @@
 package Modelo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Administrador {
 
 	@Id
+	@SequenceGenerator(name="seq_id", sequenceName="seq_id", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_id")
 	private int codigo;
 	private String cedula;
 	private String nombre;
@@ -59,11 +64,10 @@ public class Administrador {
 	public void setRol(Rol rol) {
 		this.rol = rol;
 	}
-	
 	@Override
 	public String toString() {
 		return "Administrador [codigo=" + codigo + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido="
-				+ apellido + ", email=" + email + ", clabe=" + clave + ", rol=" + rol + "]";
+				+ apellido + ", email=" + email + ", clave=" + clave + ", rol=" + rol + "]";
 	}
 	
 	

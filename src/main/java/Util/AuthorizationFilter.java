@@ -40,6 +40,8 @@ public class AuthorizationFilter implements Filter {
 					|| reqURI.indexOf("crearRol.xhtml")>=0
 					|| reqURI.indexOf("olvidePassword.xhtml")>=0
 					|| reqURI.indexOf("registerAdmin.xhtml")>=0
+					|| reqURI.indexOf("factura.xhtml")>=0
+					|| reqURI.indexOf("crearReceta.xhtml")>=0
 					)
 				chain.doFilter(request, response);
 			else

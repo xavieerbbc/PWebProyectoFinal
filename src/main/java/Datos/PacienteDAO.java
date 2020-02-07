@@ -38,4 +38,11 @@ public class PacienteDAO {
 		return listado;
 	}
 	
+	public List<Paciente> buscar1Paciente(String cedula) {
+		String jpql = "SELECT p FROM Paciente p WHERE p.cedula= ?1";
+		Query query = em.createQuery(jpql, Paciente.class);
+		query.setParameter(1, cedula);
+		return query.getResultList();
+	}
+	
 }

@@ -8,7 +8,6 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.inject.Inject;
-//import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSession;
 
 import Modelo.Administrador;
@@ -36,6 +35,11 @@ public class GestionLoginBean implements Serializable {
 	private String contrasena;
 	private String user;
 	private String nameUser;
+	private Administrador admin;
+	private Medico medico;
+	private Paciente paciente;
+	private String nuevaContrasena;
+	private String repiteContrasena;
 
 	public String iniciarSesion() {
 		
@@ -46,18 +50,22 @@ public class GestionLoginBean implements Serializable {
 		if(paciente != null) {
 			HttpSession session = SessionUtils.getSession();
 			session.setAttribute("username", this.email);
-			this.nameUser=paciente.getNombre()+" "+paciente.getApellido();
-			return "index2.xhtml";
+			this.paciente=paciente;
+			this.nameUser=this.paciente.getNombre()+" "+this.paciente.getApellido();
+			return "paginaPrincipalPaciente.xhtml";
 		}else if(medico != null) {
 			HttpSession session = SessionUtils.getSession();
 			session.setAttribute("username", this.email);
+			this.medico=medico;
 			this.nameUser=medico.getNombre()+" "+medico.getApellido();
-			return "index.xhtml";
+			return "PaginaPrincipalMedico.xhtml";
 		}else if(administrador != null) {
 			HttpSession session = SessionUtils.getSession();
 			session.setAttribute("username", this.email);
-			this.nameUser=administrador.getNombre()+" "+administrador.getApellido();
-			return "crearMedico.xhtml";
+			//comentario para hacer commit
+			this.admin=administrador;
+			this.nameUser=this.admin.getNombre()+" "+this.admin.getApellido();
+			return "PaginaPrincipalAdministrador.xhtml";
 		}
 		
 		return null;
@@ -69,6 +77,7 @@ public class GestionLoginBean implements Serializable {
 		session.invalidate();
 		return "login.xhtml";
 	}
+	
 	
 	public Paciente validarLoginPaciente() {
 		List<Paciente> pacientes = new ArrayList<Paciente>();
@@ -92,6 +101,44 @@ public class GestionLoginBean implements Serializable {
 		return null;
 	}
 	
+	public String editarAdministrador() {
+		this.gal.actualizar(this.admin);
+		this.nameUser=this.admin.getNombre()+" "+this.admin.getApellido();
+		return "PaginaPrincipalAdministrador.xhtml";
+	}
+	
+	public String editarMedico() {
+		this.gml.actualizar(this.medico);
+		this.nameUser=medico.getNombre()+" "+medico.getApellido();
+		return "PaginaPrincipalMedico.xhtml";
+	}
+	
+	public String editarClaveAdministrador() {
+		if(this.getNuevaContrasena().equals(this.getRepiteContrasena())) {
+			this.admin.setClave(this.getNuevaContrasena());
+			System.out.println(this.admin.toString());
+			this.gal.actualizar(this.admin);
+			this.cerrarSesion();
+			return "login.xhtml";
+		}else {
+			System.out.println("Las contraseñas no son iguales");
+			return "PaginaCambiarClave";
+		}
+	}
+	
+	public String editarClaveMedico() {
+		if(this.getNuevaContrasena().equals(this.getRepiteContrasena())) {
+			this.medico.setClave(this.getNuevaContrasena());
+			System.out.println(this.medico.toString());
+			this.gml.actualizar(this.medico);
+			this.cerrarSesion();
+			return "login.xhtml";
+		}else {
+			System.out.println("Las contraseñas no son iguales");
+			return "PaginaCambiarClaveMedico";
+		}
+	}
+	
 	public Administrador validarLoginAdministrador() {
 		List<Administrador> administradores= new ArrayList<Administrador>();
 		administradores=this.gal.getAdministradores();
@@ -102,8 +149,6 @@ public class GestionLoginBean implements Serializable {
 		}
 		return null;
 	}
-	
-	
 	public GestionPacienteLocal getGpl() {
 		return gpl;
 	}
@@ -148,5 +193,46 @@ public class GestionLoginBean implements Serializable {
 	public void setNameUser(String nameUser) {
 		this.nameUser = nameUser;
 	}
+
+	public Administrador getAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(Administrador admin) {
+		this.admin = admin;
+	}
+
+	public String getNuevaContrasena() {
+		return nuevaContrasena;
+	}
+
+	public void setNuevaContrasena(String nuevaContrasena) {
+		this.nuevaContrasena = nuevaContrasena;
+	}
+
+	public String getRepiteContrasena() {
+		return repiteContrasena;
+	}
+
+	public void setRepiteContrasena(String repiteContrasena) {
+		this.repiteContrasena = repiteContrasena;
+	}
+
+	public Medico getMedico() {
+		return medico;
+	}
+
+	public void setMedico(Medico medico) {
+		this.medico = medico;
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
+	}
+	
 	
 }

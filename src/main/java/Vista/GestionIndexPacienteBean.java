@@ -42,6 +42,7 @@ public class GestionIndexPacienteBean {
 	public void init() {
 		this.listarMedico();
 		this.citas= new ArrayList<Cita>();
+		
 	}
 	
 	public List<Medico> getMedicos() {
@@ -77,14 +78,6 @@ public class GestionIndexPacienteBean {
 	
 	
 	
-	public List<Cita> getCitas() {
-		return citas;
-	}
-
-	public void setCitas(List<Cita> citas) {
-		this.citas = citas;
-	}
-
 	public GestionMedicoLocal getGml() {
 		return gml;
 	}
@@ -101,9 +94,20 @@ public class GestionIndexPacienteBean {
 		this.gpl = gpl;
 	}
 
+	
+	
+	public List<Cita> getCitas() {
+		return citas;
+	}
+
+	public void setCitas(List<Cita> citas) {
+		this.citas = citas;
+	}
+
 	public void listarMedico() {
 		this.medicos= this.gml.getMedicos();
 	}
+	
 	
 	
 	public String guardarCita(String user) {
@@ -131,20 +135,21 @@ public class GestionIndexPacienteBean {
 		}
 		return null;
 	}
+	
 	public String eliminar(int codigo) {
-
+		
 		try {
 			this.gcl.borrar(codigo);
-			System.out.println("CITA ELIMINADA");
+			System.out.println("Cita eliminado");
 			return "index2?faces-redirect=true";
 		} catch (Exception e) {
-			
-			System.out.println("ERROR");
+			// TODO Auto-generated catch block
+			System.out.println("Error al eliminar");
 			e.printStackTrace();			
 		}		
 		return null;
 	}
-
+	
 	public List<Cita> obtenerCitas(String email){
 		System.out.println(email);
 		List<Cita> aux= new ArrayList<Cita>();

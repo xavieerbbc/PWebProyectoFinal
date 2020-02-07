@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import Modelo.Cita;
+import Modelo.Medico;
 
 @Stateless
 public class CitaDAO {
@@ -37,5 +38,24 @@ public class CitaDAO {
 		List<Cita> listado = query.getResultList();		
 		return listado;
 	}
+	
+	public List<Cita> obtenerCitasPendientes(Medico medico){
+		String jpql = "SELECT c FROM Cita c WHERE c.medico = :medico and c.estado = :estado";
+		Query query = em.createQuery(jpql, Cita.class);
+		query.setParameter("medico", medico);
+		query.setParameter("estado", "Pendiente");
+		List<Cita> listado = query.getResultList();
+		return listado;
+	}
+	
+	public List<Cita> obtenerCitasAgendadas(Medico medico){
+		String jpql = "SELECT c FROM Cita c WHERE c.medico = :medico and c.estado = :estado";
+		Query query = em.createQuery(jpql, Cita.class);
+		query.setParameter("medico", medico);
+		query.setParameter("estado", "Agendada");
+		List<Cita> listado = query.getResultList();
+		return listado;
+	}
+	
 	
 }

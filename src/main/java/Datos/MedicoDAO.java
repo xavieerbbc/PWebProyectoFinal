@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
+import Modelo.Especialidad;
 import Modelo.Medico;
 
 @Stateless
@@ -36,6 +37,16 @@ public class MedicoDAO {
 		Query query = em.createQuery(jpql, Medico.class);
 		List<Medico> listado = query.getResultList();		
 		return listado;
+	}
+	
+	public List<Medico> getMedicosPorEspecialidad(int especialidad){
+		String jpql = "SELECT m FROM Medico m WHERE m.especialidad.codigo = ?1";
+		Query q = em.createQuery(jpql, Medico.class);
+		q.setParameter(1,especialidad);
+		
+		List<Medico> medicosEspecialidad = q.getResultList();
+		
+		return medicosEspecialidad;
 	}
 	
 }
