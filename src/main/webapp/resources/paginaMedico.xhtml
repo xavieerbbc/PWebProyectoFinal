@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html 
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -36,14 +36,15 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: #A9D0F5;color:#fff" role="navigation">
+  
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="PaginaPrincipalMedico.xhtml" class="nav-link">Home</a>
+        <a href="PaginaPrincipalMedico.xhtml" class="nav-link">My Health</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -56,12 +57,12 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#03BBC5 ;color:#fff">
     <!-- Brand Logo -->
     <a href="PaginaPrincipalMedico.xhtml" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8"/>
-      <span class="brand-text font-weight-light">Medico</span>
+      <span class="brand-text font-weight-light">MÉDICO</span>
     </a>
 
     <!-- Sidebar -->
@@ -81,7 +82,7 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
                 Citas
                 <i class="fas fa-angle-left right"></i>
@@ -99,7 +100,7 @@
                
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
                 Recetas
                 <i class="fas fa-angle-left right"></i>
@@ -109,7 +110,7 @@
               <li class="nav-item">
                 <a href="PaginaCrearRecetasMedico.xhtml" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Nueva Receta</p>
+                  <p>Crear Receta</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -123,9 +124,9 @@
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              
               <p>
-                Historial Pacientes
+                Historial de Pacientes
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -133,7 +134,7 @@
               <li class="nav-item">
                 <a href="PaginaCrearHistorialesMedico.xhtml" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Nuevo Historial</p>
+                  <p>Crear Historial</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -146,9 +147,9 @@
          </li>
          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
+              
               <p>
-                Configuración
+                Configuraciones
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -182,11 +183,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Bienvenido a la Página del Medico</h1>
+            <h1 class="m-0 text-dark">Bienvenido Médico</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">My Health</a></li>
               <li class="breadcrumb-item active">Principal</li>
             </ol>
           </div><!-- /.col -->
@@ -208,9 +209,9 @@
             <!-- Widget: user widget style 1 -->
             <div class="card card-widget widget-user">
               <!-- Add the bg color to the header using any of the bg-* classes -->
-              <div class="widget-user-header bg-info">
+              <div class="widget-user-header " style="background-color: #A9D0F5;color:#fff" >
                 <h3 class="widget-user-username"><ui:insert name="nombreMedico"></ui:insert></h3>
-                <h5 class="widget-user-desc">Médico</h5>
+                <h5 class="widget-user-desc">MÉDICO</h5>
               </div>
               <div class="card-footer">
                 <div class="row">
@@ -251,11 +252,12 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  
   <footer class="main-footer">
-    <strong>Copyright copy; 2014-2019 <a href="http://adminlte.io">Universidad Politécnica Salesiana</a>.</strong>
-    All rights reserved.
+    <strong>Copyright  Plataformas Web <a href="http://adminlte.io">Universidad Politécnica Salesiana</a>.</strong>
+
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.2
+      <b>Bryam Barrera, Jonathan Matute, Rene Panjon, Javier Yunga</b>
     </div>
   </footer>
 
