@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html 
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
@@ -36,14 +36,14 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: #A9D0F5;color:#fff" role="navigation">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="PaginaPrincipalMedico.xhtml" class="nav-link">Home</a>
+        <a href="PaginaPrincipalMedico.xhtml" class="nav-link">My Health</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
@@ -56,10 +56,10 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color:#03BBC5 ;color:#fff">
     <!-- Brand Logo -->
     <a href="PaginaPrincipalMedico.xhtml" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="dist/img/medico.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8"/>
       <span class="brand-text font-weight-light">Médico</span>
     </a>
@@ -81,7 +81,6 @@
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
               <p>
                 Citas
                 <i class="fas fa-angle-left right"></i>
@@ -90,7 +89,6 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="PaginaListarCitasMedico.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>Mis Citas</p>
                 </a>
               </li>
@@ -99,7 +97,6 @@
                
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
               <p>
                 Recetas
                 <i class="fas fa-angle-left right"></i>
@@ -108,13 +105,11 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="PaginaCrearRecetasMedico.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>Nueva Receta</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="PaginaListarRecetasMedico.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>Ver Recetas</p>
                 </a>
               </li>
@@ -123,7 +118,6 @@
           
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
               <p>
                 Historial Pacientes
                 <i class="fas fa-angle-left right"></i>
@@ -132,13 +126,11 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="PaginaCrearHistorialesMedico.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>Nuevo Historial</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="PaginaListarHistorialesMedico.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>Ver Historiales</p>
                 </a>
               </li>
@@ -146,7 +138,6 @@
          </li>
          <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
               <p>
                 Configuración
                 <i class="fas fa-angle-left right"></i>
@@ -155,13 +146,11 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="PaginaEditarPerfilMedico.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>Editar Perfil</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="PaginaCambiarClaveMedico.xhtml" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
                   <p>Cambiar Contraseña</p>
                 </a>
               </li>
@@ -218,10 +207,10 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright copy; 2014-2019 <a href="http://adminlte.io">Universidad Politécnica Salesiana</a>.</strong>
+    <strong>Copyright Plataformas Web <a href="http://adminlte.io">Universidad Politécnica Salesiana</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.2
+      <b>Bryam Barrera, Jonathan Matute, Rene Panjon, Javier Yunga</b>
     </div>
   </footer>
 
