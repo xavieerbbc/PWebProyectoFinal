@@ -13,84 +13,74 @@
 		
 			<h:form>
         		
-        		<h:outputLabel value="Paciente:" />
+        		<h:outputLabel value="Paciente" />
         		<div class="form-group">
-              		<h:outputText value="Paciente:" />
+              		
                 	<h:selectOneMenu class="form-control select2" style="width: 100%;" value="#{gestionHistorialBean.historial.paciente}" converter="pacienteConverter2">
       					<f:selectItems value="#{gestionHistorialBean.pacientes}" var="p"
       						itemLabel="#{p.nombre}" itemValue="#{p}"/>
       				</h:selectOneMenu>
               	</div> 
         		
-        		<h:outputLabel value="Motivo de consulta:" />
+        		<h:outputLabel value="Tipo de consulta" />
         		<div class="input-group mb-3">
           			<h:inputText  value="#{gestionHistorialBean.historial.motivoConsulta}" class="form-control"></h:inputText>
           			<div class="input-group-append">
             			<div class="input-group-text">
-              				<span class="fas fa-calendar"></span>
+              				
             			</div>
           			</div>
         		</div>
         		
-        		<h:outputLabel value="Diagnostico:" />
+        		<h:outputLabel value="Diagnostico" />
         		<div class="input-group mb-3">
           			<h:inputText  value="#{gestionHistorialBean.historial.diagnostico}" class="form-control"></h:inputText>
           			<div class="input-group-append">
             			<div class="input-group-text">
-              				<span class="fas fa-calendar"></span>
+              				
             			</div>
           			</div>
         		</div>
         		
-        		<h:outputLabel value="Tratamiento:" />
+        		<h:outputLabel value="Tratamiento" />
         		<div class="input-group mb-3">
           			<h:inputText  value="#{gestionHistorialBean.historial.tratamiento}" class="form-control"></h:inputText>
           			<div class="input-group-append">
             			<div class="input-group-text">
-              				<span class="fas fa-calendar"></span>
+              				
             			</div>
           			</div>
         		</div>
         		
-        		<h3>Antecedentes Clinicos</h3>
-        		
-        		<h:outputLabel value="Enfermedades:" />
+        		<h:outputLabel value="Enfermedades Anteriores" />
         		<div class="input-group mb-3">
           			<h:inputText  value="#{gestionHistorialBean.historial.enfermedades}" class="form-control"></h:inputText>
           			<div class="input-group-append">
             			<div class="input-group-text">
-              				<span class="fas fa-calendar"></span>
+              				
             			</div>
           			</div>
         		</div>
         		
-        		<h:outputLabel value="Medicamentos que toma actualmente:" />
+        		<h:outputLabel value="Medicamentos Actuales" />
         		<div class="input-group mb-3">
           			<h:inputText  value="#{gestionHistorialBean.historial.medicamentosActuales}" class="form-control"></h:inputText>
           			<div class="input-group-append">
             			<div class="input-group-text">
-              				<span class="fas fa-calendar"></span>
-            			</div>
-          			</div>
-        		</div>
-        		
-        		<h:outputLabel value="Antecedentes enfermedades cronicas:" />
-        		<div class="input-group mb-3">
-          			<h:inputText  value="#{gestionHistorialBean.historial.antecedentesEnfermedades}" class="form-control"></h:inputText>
-          			<div class="input-group-append">
-            			<div class="input-group-text">
-              				<span class="fas fa-calendar"></span>
+              				
             			</div>
           			</div>
         		</div>
         		
         		
-        		<h:outputLabel value="Alergias:" />
+        		
+        		
+        		<h:outputLabel value="Alergias" />
         		<div class="input-group mb-3">
           			<h:inputText  value="#{gestionHistorialBean.historial.alergias}" class="form-control"></h:inputText>
           			<div class="input-group-append">
             			<div class="input-group-text">
-              				<span class="fas fa-calendar"></span>
+              				
             			</div>
           			</div>
         		</div>

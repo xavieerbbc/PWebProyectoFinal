@@ -33,11 +33,11 @@
 							#{_medicos.apellido}
 						</h:column>
 						<h:column>
-							<f:facet name="header">Email</f:facet>
+							<f:facet name="header">Correo</f:facet>
 							#{_medicos.email}
 						</h:column>
 						<h:column>
-							<f:facet name="header" >Clave</f:facet>
+							<f:facet name="header" >Contraseña</f:facet>
 							#{_medicos.clave}
 						</h:column>
 						<h:column>
@@ -49,7 +49,7 @@
 							#{_medicos.especialidad.nombre}
 						</h:column>
 						<h:column>
-							<f:facet name="header">Acciones</f:facet>
+							<f:facet name="header"></f:facet>
 							<div class="btn-group btn-group-sm">
 								<h:commandButton action="#{gestionMedicoBean.editar(_medicos)}" styleClass="btn btn-info" value="Editar" />
 								<h:commandButton action="#{gestionMedicoBean.eliminar(_medicos.codigo)}" styleClass="btn btn-danger" value="Eliminar" />

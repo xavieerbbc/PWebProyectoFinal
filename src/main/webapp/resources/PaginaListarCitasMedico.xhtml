@@ -36,7 +36,7 @@
 						</h:column>
 						
 						<h:column>
-							<f:facet name="header">Acciones</f:facet>
+							<f:facet name="header"> </f:facet>
 							<div class="btn-group btn-group-sm">
 								<h:commandButton action="#{gestionIndexMedicoBean.agendarCita(_citas)}" styleClass="btn btn-info" value="Agendar" />
 								<h:commandButton action="#{gestionIndexMedicoBean.rechazarCita(_citas)}" styleClass="btn btn-danger" value="Rechazar" />
@@ -73,7 +73,7 @@
 							#{_citas.hora}
 						</h:column>
 						<h:column>
-							<f:facet name="header">Estado</f:facet>
+							<f:facet name="header"></f:facet>
 							#{_citas.estado}
 						</h:column>
 						

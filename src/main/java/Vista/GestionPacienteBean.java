@@ -10,7 +10,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import Exception.ExceptionDigitalMedical;
+import Exception.ExcepcionesRegistro;
 import Modelo.Medico;
 import Modelo.Paciente;
 import Modelo.Rol;
@@ -221,15 +221,15 @@ public class GestionPacienteBean {
 		paciente.setSexo(this.getSexo());
 		paciente.setRol(this.gpl.obtenerRol(3));
 		paciente.setPreguntaSecreta(this.getPreguntaSecreta());
-		System.out.println("Este paciente tiene los datos: "+paciente.toString());
+		System.out.println("Paciente: "+paciente.toString());
 		try {
 			if(this.getClave().equals(this.getClave2())) {
-				System.out.println("Datos del paciente entrando en el try y antes de guardar: "+paciente.toString());
+				System.out.println(" "+paciente.toString());
 				this.gpl.insertar2(paciente);
 			}else {
-				throw new ExceptionDigitalMedical(5);
+				throw new ExcepcionesRegistro(5);
 			}
-		} catch (ExceptionDigitalMedical e) {
+		} catch (ExcepcionesRegistro e) {
 			// TODO Auto-generated catch block
 			FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMensaje(), "Registration unsuccessful");
 			facesContext.addMessage(null, m);

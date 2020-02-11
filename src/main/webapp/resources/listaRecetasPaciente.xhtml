@@ -56,6 +56,12 @@
 
 			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+        <ui:insert name="cerrarSesion"></ui:insert>
+        <ui:define name="nombreMedico">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+      </li>
 				<!-- Messages Dropdown Menu -->
 				<li class="nav-item dropdown">
 					<div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">

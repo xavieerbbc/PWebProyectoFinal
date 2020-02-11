@@ -34,8 +34,9 @@
         <a href="index2.xhtml" class="nav-link">My Health</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        
       </li>
+      
+      
     </ul>
 
     <!-- SEARCH FORM -->
@@ -47,9 +48,16 @@
         </div>
       </div>
     </form>
+    
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+        <ui:insert name="cerrarSesion"></ui:insert>
+        <ui:define name="nombreMedico">#{gestionLoginBean.nameUser.toUpperCase()}</ui:define>
+		<ui:define name="cerrarSesion"><h:form><h:commandButton styleClass="btn btn-block btn-outline-success" action="#{gestionLoginBean.cerrarSesion()}" value="Cerrar Sesion" /> </h:form>
+		</ui:define>
+      </li>
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         
@@ -266,7 +274,7 @@
           <!-- Default box -->
       <div class="card">
         <div class="card-header" style="background-color: #A9D0F5;color:#fff">
-          <h3 class="card-title">Especialidad</h3>
+          <h3 class="card-title">Citas</h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">

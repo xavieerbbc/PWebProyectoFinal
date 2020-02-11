@@ -31,11 +31,11 @@
 							#{_pacientes.apellido}
 						</h:column>
 						<h:column>
-							<f:facet name="header">Email</f:facet>
+							<f:facet name="header">Correo</f:facet>
 							#{_pacientes.email}
 						</h:column>
 						<h:column>
-							<f:facet name="header">Clave</f:facet>
+							<f:facet name="header">Contraseña</f:facet>
 							#{_pacientes.clave}
 						</h:column>
 						<h:column>
@@ -43,12 +43,12 @@
 							#{_pacientes.fechaNac}
 						</h:column>
 						<h:column>
-							<f:facet name="header">Sexo</f:facet>
+							<f:facet name="header">Genero</f:facet>
 							#{_pacientes.sexo}
 						</h:column>
 						
 						<h:column>
-							<f:facet name="header">Acciones</f:facet>
+							<f:facet name="header"></f:facet>
 							<div class="btn-group btn-group-sm">
 								<h:commandButton action="#{gestionPacienteBean.editar(_pacientes)}" styleClass="btn btn-info" value="Editar" />
 								<h:commandButton action="#{gestionPacienteBean.eliminar(_pacientes.codigo)}" styleClass="btn btn-danger" value="Eliminar"/>

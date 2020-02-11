@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import Datos.PacienteDAO;
 import Datos.RolDAO;
-import Exception.ExceptionDigitalMedical;
+import Exception.ExcepcionesRegistro;
 import Exception.MetodosVarios;
 import Modelo.Paciente;
 import Modelo.Rol;
@@ -22,42 +22,42 @@ public class GestionPaciente implements GestionPacienteLocal {
 	@Inject
 	private MetodosVarios mv;
 
-	public void insertar2(Paciente paciente) throws ExceptionDigitalMedical {
+	public void insertar2(Paciente paciente) throws ExcepcionesRegistro {
 		List<Paciente> p = pdao.buscar1Paciente(paciente.getCedula());
 		if (p.isEmpty()) {
 			if (paciente.getCedula().length() == 10) {
 				if (mv.numerico(paciente.getCedula()) == true) {
 					if (mv.soloLetras(paciente.getNombre()) == true & mv.soloLetras(paciente.getApellido()) == true) {
 						if (mv.soloLetras(paciente.getPreguntaSecreta()) == true) {
-							System.out.println("Hasta aqui llego");
+							
 							if(paciente.getApellido().length()>1 & paciente.getClave().length() >1 & paciente.getNombre().length()>1 & paciente.getEmail().length()>1 & paciente.getPreguntaSecreta().length()>1) {
 								if(mv.soloLetras(paciente.getSexo())==true) {
 									pdao.insertar(paciente);
 								}else {
-									throw new ExceptionDigitalMedical(8);
+									throw new ExcepcionesRegistro(8);
 								}
 							
 							}else {
-								throw new ExceptionDigitalMedical(7);
+								throw new ExcepcionesRegistro(7);
 							}
 							
 						} else {
-							throw new ExceptionDigitalMedical(6);
+							throw new ExcepcionesRegistro(6);
 						}
 
 					} else {
-						throw new ExceptionDigitalMedical(4);
+						throw new ExcepcionesRegistro(4);
 					}
 				} else {
-					throw new ExceptionDigitalMedical(3);
+					throw new ExcepcionesRegistro(3);
 				}
 
 			} else {
-				throw new ExceptionDigitalMedical(2);
+				throw new ExcepcionesRegistro(2);
 			}
 
 		} else {
-			throw new ExceptionDigitalMedical(1);
+			throw new ExcepcionesRegistro(1);
 		}
 	}
 
